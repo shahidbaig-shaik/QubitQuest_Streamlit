@@ -1,4 +1,5 @@
 import streamlit as st
+
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
@@ -34,7 +35,24 @@ circuit = qc  # Required for rendering
 st.markdown("### 🧪 Try it Yourself:")
 code = st.text_area("Edit Qiskit Code Here", value=default_code, height=250)
 
-if st.button("🔍 Run & Show Circuit"):
+if st.button("🔵 Run & Show Circuit:"):
     try:
         exec_globals = {}
-        exec
+        exec(code, exec_globals)
+    except Exception as e:
+        st.error(f"⚠️ Error in your code:\n\n{e}")
+
+st.title("🔗 Entanglement")
+
+st.markdown("""
+Entanglement links qubits so their states are *correlated no matter the distance*.
+
+- Measuring one instantly tells you about the other.
+- Famous Example: The Bell state  
+  $$
+  |\\Phi^+\\rangle = \\frac{1}{\\sqrt{2}}(|00\\rangle + |11\\rangle)
+  $$
+
+Einstein called it “spooky action at a distance.”
+""")
+
