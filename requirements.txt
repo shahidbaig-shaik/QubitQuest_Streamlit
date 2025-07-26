@@ -3,3 +3,8 @@ qiskit
 matplotlib
 pylatexenc
 qiskit-aer
+plotly
+streamlit-ace
+numpy
+sympy
+pandas
